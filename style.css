@@ -7,4 +7,28 @@ body {
     scroll-behavior: smooth;
     margin: 0;
     /* overflow: hidden;  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.imgbackground{
+    background-color: rgba(39,53,92,255);
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.startbuttondiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.whole-card {
+    height: 50vh;
 }
