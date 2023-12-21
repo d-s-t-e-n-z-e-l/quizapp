@@ -7,7 +7,7 @@ body {
     scroll-behavior: smooth;
     margin: 0;
     /* overflow: hidden;  */
-    font-family: 'PT Sans'
+    font-family: 'PT Sans';   
 }
 
 .bodydiv{
@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(254,250,239,255);
 }
 
 .imgbackground{
@@ -26,6 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: white;
 }
 
 .startbuttondiv{
@@ -41,6 +43,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 70px;
+}
+
+.aside-span{
+    color: white;
+    font-family: 'Rubik';
+    font-weight:lighter
+}
+
+.white-block{
+    background-color: white;
+    width: 4px;
+    height: 24px;
+}
+
+.dino-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .startbutton{
