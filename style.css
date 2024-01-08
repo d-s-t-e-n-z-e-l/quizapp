@@ -101,3 +101,51 @@ body {
     gap: 4px;
 }
 
+.question-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-position: center;
+    justify-content: space-evenly;
+    background-position: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.question{
+    font-family: 'PT Sans';
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Rubik';
+    font-weight: 600;
+    text-align: center;
+}
+
+.answerblock{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+    font-family: 'Rubik';
+    font-weight: 500;
+    width:75%;
+    margin: 0;
+}
+
+.numberblock{
+    background-color: #d6d6d6;
+    width: 36px;
+    height:36px;
+    text-align: center;
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answeroption{
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
