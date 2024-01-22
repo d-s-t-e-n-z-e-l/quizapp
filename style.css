@@ -7,38 +7,38 @@ body {
     scroll-behavior: smooth;
     margin: 0;
     /* overflow: hidden;  */
-    font-family: 'PT Sans';   
+    font-family: 'PT Sans';
 }
 
-.bodydiv{
+.bodydiv {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(254,250,239,255);
+    background-color: rgba(254, 250, 239, 255);
 }
 
-.imgbackground{
-    background-color: rgba(39,53,92,255);
+.imgbackground {
+    background-color: rgba(39, 53, 92, 255);
 }
 
-.card-body{
+.card-body {
     display: flex;
     flex-direction: column;
-    position:relative;
+    position: relative;
     justify-content: center;
     background-image: url(/img/brainbg.jpg);
     background-position: center;
 }
 
-.card-title{
+.card-title {
     font-family: 'PT Sans';
     font-weight: bold;
     font-size: 28px;
 }
 
-.card-text{
+.card-text {
     font-family: 'PT Sans';
     font-size: 22px
 }
@@ -47,25 +47,25 @@ body {
     position:relative;
 } */
 
-.startbuttondiv{
+.startbuttondiv {
     display: flex;
     justify-content: flex-end;
     position: absolute;
     bottom: 40px;
     right: 60px;
-    background-color: rgba(255,77,17,255) !important;
+    background-color: rgba(255, 77, 17, 255) !important;
     align-items: center;
 }
 
-.startbutton{
-    background-color: rgba(255,77,17,255) !important;
+.startbutton {
+    background-color: rgba(255, 77, 17, 255) !important;
     color: white !important;
     width: 200px;
     border: unset;
     font-weight: 400;
 }
 
-.chevron-right{
+.chevron-right {
     height: 24px;
     width: 24px;
 }
@@ -74,34 +74,34 @@ body {
     height: 40vh;
 }
 
-.logo-div{
+.logo-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 70px;
 }
 
-.aside-span{
+.aside-span {
     color: white;
     font-family: 'Rubik';
-    font-weight:lighter
+    font-weight: lighter
 }
 
-.white-block{
+.white-block {
     background-color: white;
     width: 4px;
     height: 24px;
     margin-bottom: 0;
 }
 
-.dino-div{
+.dino-div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 4px;
 }
 
-.question-card{
+.question-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -111,7 +111,7 @@ body {
     background-color: #f7f7f7;
 }
 
-.question{
+.question {
     font-family: 'PT Sans';
     font-weight: bold;
     font-size: 18px;
@@ -120,21 +120,21 @@ body {
     text-align: center;
 }
 
-.answerblock{
+.answerblock {
     background-color: #ffffff;
     display: flex;
     justify-content: flex-start;
     gap: 50px;
     font-family: 'Rubik';
     font-weight: 500;
-    width:75%;
+    width: 75%;
     margin: 0;
 }
 
-.numberblock{
+.numberblock {
     background-color: #d6d6d6;
     width: 36px;
-    height:36px;
+    height: 36px;
     text-align: center;
     margin: 6px;
     display: flex;
@@ -142,14 +142,14 @@ body {
     justify-content: center;
 }
 
-.answeroption{
+.answeroption {
     margin: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.endscreen{
+.endscreen {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -158,74 +158,101 @@ body {
     align-items: center;
     background-color: #f7f7f7;
     font-family: 'Rubik';
+    position: relative;
 }
 
-.endbrain{
+.endtropy {
+    position: absolute;
+    right: 0;
+    height: 40%;
+
+}
+
+.endbrain {
     width: 90px;
 }
 
-.score{
-    color:#ec9048;
+.score {
+    color: #ec9048;
     font-weight: bold;
 }
 
-.endscreenbutton{
+.endscreenbutton {
     border: none;
     background-color: #f7f7f7;
     color: #3c51c3 !important;
-    }
+}
 
-.endscreenbutton:hover{
+.endscreenbutton:hover {
     color: #f7f7f7 !important;
-    background-color: #3c51c3 !important;;
+    background-color: #3c51c3 !important;
+    ;
 }
 
 @media(max-width: 940px) {
-    .whole-inner-card{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+    .whole-inner-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .logo-div{
-       width: 100% !important;
-       flex-direction: row;
-       justify-content: center;
+    .logo-div {
+        width: 100% !important;
+        flex-direction: row;
+        justify-content: center;
     }
 
-    .img-start-logo{
-        margin-bottom:1rem;
+    .img-start-logo {
+        margin-bottom: 1rem;
     }
 
-    .card-body{
+    .card-body {
         width: 100% !important;
     }
-    .startbutton{
+
+    .startbutton {
         display: none;
     }
 
-    .whole-card{
-        height:75% !important;
-}
+    .whole-card {
+        height: 75% !important;
+    }
+
+    .endtropy{
+        height: 20%;
+    }
 }
 
 @media(max-width: 1200px) {
-    .whole-card{
-               width:60% !important;
+    .whole-card {
+        width: 60% !important;
     }
 
 }
 
 @media(max-width: 800px) {
-    .whole-card{
-               width:75% !important;
+    .whole-card {
+        width: 75% !important;
     }
 
 }
 
 @media(max-width: 650px) {
-    .whole-card{
-               height:85% !important;
+    .whole-card {
+        height: 85% !important;
+    }
+
+    .logo-div {
+        gap: 10px;
+    }
+
+}
+
+
+@media(max-width: 440px) {
+    .endtropy{
+        height: 10%;
+        top: 200px;
     }
 
 }
