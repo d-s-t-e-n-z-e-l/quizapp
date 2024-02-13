@@ -109,6 +109,8 @@ body {
     background-position: center;
     align-items: center;
     background-color: #f7f7f7;
+    padding-bottom: 8px;
+    padding-top: 8px;
 }
 
 .question {
@@ -131,6 +133,10 @@ body {
     margin: 0;
 }
 
+.hoverAnswer:hover{
+    background-color: #d6d6d6;
+}
+
 .numberblock {
     background-color: #d6d6d6;
     width: 36px;
@@ -147,6 +153,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.playButtons{
+    background-color: #d9dff2 !important;
+    border: unset;
+    color: black;
+
+}
+
+.playButtons:hover{
+    cursor: pointer;
+    background-color: #a7abb8 !important;
+}
+
+.buttonFigure{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-top: 16px;
 }
 
 .endscreen {
@@ -215,6 +243,7 @@ body {
     padding-left: 16px;
     padding-right: 16px;
     padding-top:16px;
+    flex-direction: column;
 }
 
 .datasafetybodydiv{

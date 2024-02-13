@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
+    <script src="include.js"></script>
 
     <!-- Bootstrap Files     -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,15 +17,15 @@
         crossorigin="anonymous"></script>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8bfab253-e244-4a27-be02-f13803ebfa62"
         data-blockingmode="auto" type="text/javascript"></script>
-        <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="icon" href="img/logo.png" type="image/png">
     <title>Impressum</title>
 </head>
 
 <body onload="includeHTML()">
     <div class="imprintbodydiv">
         <div class="imprint">
-            <div class="backlinkdiv"><a  class="backlink"href="index.html">Back</a></div>
-            <h1 >Impressum</h1>
+            <div class="backlinkdiv"><a class="backlink" href="index.html">Back</a></div>
+            <h1>Impressum</h1>
             <p>Angaben gemäß § 5 TMG</p>
             <p>Desiree Stenzel <br>
                 Fresdorfer Bergstraße 14<br>
@@ -79,9 +80,12 @@
                 href="https://www.kanzlei-hasselbach.de/standorte/frankfurt/" rel="nofollow">Kanzlei Hasselbach,
                 Frankfurt</a>
         </div>
+        <a class="footerlink" href="https://www.flaticon.com/de/kostenlose-icons/chevron" title="chevron Icons">Chevron
+            Icons erstellt von
+            Freepik - Flaticon</a>
     </div>
-    <div w3-include-html="templates/footer.html"></div>
-    <script src="include.js"></script>
+
+    <div w3-include-html="/templates/footer.html"></div>
 </body>
 
 
