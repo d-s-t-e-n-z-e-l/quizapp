@@ -108,19 +108,32 @@ function renderQuestion(questionNumber) {
 
     for (let i = 0; i < questions.length; i++) {
         if (questionNumber === questions[i]["number_of_question"]) {
-            innerCard.innerHTML = questionTemplate(i);
-            setVariable("numberKey",questionNumber );// speichert den Wert von questionNumber im localStorage
+                innerCard.innerHTML = questionTemplate(i);
+                setVariable("numberKey", questionNumber);// speichert den Wert von questionNumber im localStorag
         }
-        
     }
 
+
+}
+
+function nextQuestion() {
+    currentNumber = getVariable("numberKey")//aktuelle Fragenummer holen
+    nextNumber = currentNumber + 1;//Fragenummer um 1 erhöhen
+    if (nextNumber=== 11) {
+        endGame();
+    } else {
+        runQuiz(nextNumber)//runquiz mit der neuen Zahl ablaufen lassen
+    }
     
 }
 
-function nextQuestion(){
-    currentNumber = getVariable("numberKey")//aktuelle Fragenummer holen
-    nextNumber = currentNumber +1;//Fragenummer um 1 erhöhen
-    runQuiz(nextNumber)//runquiz mit der neuen Zahl ablaufen lassen
+function endGame(){
+    renderEndscreen();
+}
+
+function renderEndscreen(){
+    let innerCard = document.getElementById("innerCard");
+    innerCard.innerHTML= endScreenTemplate();
 }
 
 

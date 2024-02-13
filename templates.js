@@ -26,3 +26,22 @@ function questionTemplate(i) {
          </div>
     `
 }
+
+function endScreenTemplate() {
+    return /*html*/`
+        <section class="endscreen col-md-8 flex-grow-1">
+                    <img src="img/tropy.png" alt="tropy" class="endtropy">
+                    <img class="endbrain" src="img/brain result.png" alt="brain green border">
+                    <p class="text-center fw-bold ">COMPLETE <br> DINOSAUR QUIZ</p>
+                    <figure class="scorefigure d-flex flex-row gap-2">
+                        <p class="score">Your Score
+                        </p>
+                        <div class="fw-bold">
+                            variable/10
+                        </div>
+                    </figure>
+                    <button class="endscreenbutton btn">SHARE</button>
+                    <button class="endscreenbutton btn">REPLAY</button>
+                </section>
+    `
+}
