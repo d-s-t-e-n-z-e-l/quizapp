@@ -21,7 +21,7 @@ function questionTemplate(i) {
                     </figure>
             </section>
             <figure class="buttonFigure"><button class="playButtons btn">Exit Game</button>
-                    <button class="playButtons btn">Next</button>
+                    <button onclick="nextQuestion()" class="playButtons btn">Next</button>
             </figure>
          </div>
     `

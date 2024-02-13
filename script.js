@@ -95,6 +95,7 @@ let questions = [
 ]
 
 function startQuiz() {
+    localStorage.clear();//alle Werte aus dem LocStor werden gelöscht
     runQuiz(1);
 }
 
@@ -108,6 +109,7 @@ function renderQuestion(questionNumber) {
     for (let i = 0; i < questions.length; i++) {
         if (questionNumber === questions[i]["number_of_question"]) {
             innerCard.innerHTML = questionTemplate(i);
+            setVariable("numberKey",questionNumber );// speichert den Wert von questionNumber im localStorage
         }
         
     }
@@ -115,6 +117,19 @@ function renderQuestion(questionNumber) {
     
 }
 
+function nextQuestion(){
+    currentNumber = getVariable("numberKey")//aktuelle Fragenummer holen
+    nextNumber = currentNumber +1;//Fragenummer um 1 erhöhen
+    runQuiz(nextNumber)//runquiz mit der neuen Zahl ablaufen lassen
+}
 
+
+function setVariable(key, variable) {
+    localStorage.setItem(key, JSON.stringify(variable));
+}
+
+function getVariable(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
 
 
