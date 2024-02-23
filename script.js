@@ -94,6 +94,16 @@ let questions = [
     },
 ]
 
+function load(){
+    includeHTML()
+    renderStartScreen();
+}
+
+function renderStartScreen(){
+    let innerCard = document.getElementById("innerCard");
+    innerCard.innerHTML = startScreenTemplate();
+}
+
 function startQuiz() {
     localStorage.clear();//alle Werte aus dem LocStor werden gelöscht
     runQuiz(1);
@@ -125,6 +135,12 @@ function nextQuestion() {
         runQuiz(nextNumber)//runquiz mit der neuen Zahl ablaufen lassen
     }
     
+}
+
+function exitGame(){
+    localStorage.clear();//alle Werte aus dem LocStor werden gelöscht
+    load();
+
 }
 
 function endGame(){

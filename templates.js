@@ -1,3 +1,14 @@
+function startScreenTemplate(){
+    return /*html*/`
+        <h5 class="card-title fw-bold text-center">Welcome to <br>The Awesome Dinosaur Quiz.</h5>
+                    <p class="card-text text-center">Ready for the Challenge?</p>
+                    <div class="startbuttondiv btn d-flex">
+                        <button  onclick="startQuiz()" type="button" class="startbutton">START NOW </button>
+                        <img class="chevron-right" src="img/chevron.png" alt="chevron-right">
+                    </div>
+    `
+}
+
 function questionTemplate(i) {
     return /*html*/`
        <div> 
@@ -20,7 +31,7 @@ function questionTemplate(i) {
                         <p class="answeroption">${questions[i]['answer_4']}</p>
                     </figure>
             </section>
-            <figure class="buttonFigure"><button class="playButtons btn">Exit Game</button>
+            <figure class="buttonFigure"><button onclick="exitGame()" class="playButtons btn">Exit Game</button>
                     <button onclick="nextQuestion()" class="playButtons btn">Next</button>
             </figure>
          </div>
