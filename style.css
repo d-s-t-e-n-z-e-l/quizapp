@@ -137,6 +137,14 @@ body {
     background-color: #d6d6d6;
 }
 
+.answerblockGreen{
+    background-color: #71e46d !important;
+}
+
+.answerblockRed{
+    background-color: #ee3e3e !important;
+}
+
 .numberblock {
     background-color: #d6d6d6;
     width: 36px;

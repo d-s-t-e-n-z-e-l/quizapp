@@ -14,19 +14,19 @@ function questionTemplate(i) {
        <div> 
             <section class="question-card">
                     <h5 class="question fw-bold text-center w-75">${questions[i]['question']}</h5>
-                    <figure class="answerblock hoverAnswer">
+                    <figure id="1" onclick="checkSelection(1)" class="answerblock hoverAnswer">
                         <div class="numberblock">1</div>
                         <p class="answeroption">${questions[i]['answer_1']}</p>
                     </figure>
-                    <figure class="answerblock hoverAnswer">
+                    <figure id="2" onclick="checkSelection(2)" class="answerblock hoverAnswer">
                         <div class="numberblock">2</div>
                         <p class="answeroption">${questions[i]['answer_2']}</p>
                     </figure>
-                    <figure class="answerblock hoverAnswer">
+                    <figure id="3" onclick="checkSelection(3)" class="answerblock hoverAnswer">
                         <div class="numberblock">3</div>
                         <p class="answeroption">${questions[i]['answer_3']}</p>
                     </figure>
-                    <figure class="answerblock hoverAnswer">
+                    <figure id="4" onclick="checkSelection(4)" class="answerblock hoverAnswer">
                         <div class="numberblock">4</div>
                         <p class="answeroption">${questions[i]['answer_4']}</p>
                     </figure>
