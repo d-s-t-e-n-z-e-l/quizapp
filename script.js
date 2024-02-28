@@ -117,13 +117,13 @@ function renderQuestion(questionNumber) {
 
     for (let i = 0; i < questions.length; i++) {
         if (questionNumber === questions[i]["number_of_question"]) {
-            innerCard.innerHTML = questionTemplate(i);
+            innerCard.innerHTML = questionTemplate(i,questionNumber);
             setVariable("numberKey", questionNumber);// speichert den Wert von questionNumber im localStorag
         }
     }
     console.log("render questions")
-
 }
+
 
 function nextQuestion() {
     currentNumber = getVariable("numberKey")//aktuelle Fragenummer holen
@@ -151,6 +151,7 @@ function renderEndscreen() {
 }
 
 function checkSelection(N) {
+    console.log("checkSelection")
     let currentQuestion = getVariable("numberKey") // der aktuelle locstor Wert zeigt in welcher Frage wir sind, reduzieren wir ihn unten um 1 erhlaten wie die x-te stelle des arrays quest.
 
     answerBlockID = N;
@@ -158,22 +159,37 @@ function checkSelection(N) {
     answerNumber = answer + N; // nimmt in zeile 161 die Werte answer_1 , answer_2,  answer_3 und answer_4 an, ne nachdem was N durch den buttonclick gerade hat
 
     if (questions[currentQuestion - 1][answerNumber] === questions[currentQuestion - 1]["right_answer"]) {
-        selcetionRight(answerBlockID);        
+        selcetionRight(answerBlockID);
     } else {
         selectionWrong(answerBlockID);
+        showRightAnswer(currentQuestion);
     }
 }
 
-function selcetionRight(){
-    selectedQuestion = document.getElementById(answerBlockID);
-    selectedQuestion.classList.add('answerblockGreen');//ändere hintergrund zu grün
+function selcetionRight(answerBlockID) {
+    console.log("selection right")
+    rightAnswer = document.getElementById(answerBlockID);
+    rightAnswer.classList.add('answerblockGreen');//ändere hintergrund zu grün
 }
 
 
-function selectionWrong(){
+function selectionWrong(answerBlockID) {
+    console.log("selection wrong")
     selectedQuestion = document.getElementById(answerBlockID)
     selectedQuestion.classList.add('answerblockRed')//ändere hintergrund zu rot
-    //markiere die richtige mit grün
+
+}
+
+function showRightAnswer(currentQuestion) {
+    console.log("showrightanswer")
+    for (let i = 1; i < 5; i++) {
+        answerKey = "answer_";
+        checkedAnswer = answerKey + i //answer_1 , answer_2,  answer_3 und answer_4
+
+        if (questions[currentQuestion - 1][checkedAnswer] === questions[currentQuestion - 1]["right_answer"]) {
+            selcetionRight(i)
+        }
+    } //durch die fragemöglichkeiten iterieren und dort wo right_answer = questions--currentquestion-1 --answer_x , dann dort grün markieren 
 }
 
 function setVariable(key, variable) {

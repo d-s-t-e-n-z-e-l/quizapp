@@ -9,7 +9,7 @@ function startScreenTemplate(){
     `
 }
 
-function questionTemplate(i) {
+function questionTemplate(i,questionNumber) {
     return /*html*/`
        <div> 
             <section class="question-card">
@@ -31,8 +31,10 @@ function questionTemplate(i) {
                         <p class="answeroption">${questions[i]['answer_4']}</p>
                     </figure>
             </section>
-            <figure class="buttonFigure"><button onclick="exitGame()" class="playButtons btn">Exit Game</button>
-                    <button onclick="nextQuestion()" class="playButtons btn">Next</button>
+            <figure class="buttonFigure">
+                <button onclick="exitGame()" class="playButtons btn">Exit Game</button>
+                <span>${questionNumber}/10</span>
+                <button onclick="nextQuestion()" class="playButtons btn">Next</button>
             </figure>
          </div>
     `
