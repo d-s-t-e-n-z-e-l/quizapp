@@ -32,6 +32,10 @@ body {
     background-position: center;
 }
 
+.backgroundWhite{
+    background-color: rgb(247,247,247) !important;
+}
+
 .card-title {
     font-family: 'PT Sans';
     font-weight: bold;

@@ -40,7 +40,7 @@ function questionTemplate(i,questionNumber) {
     `
 }
 
-function endScreenTemplate() {
+function endScreenTemplate(endScore) {
     return /*html*/`
         <section class="endscreen col-md-8 flex-grow-1">
                     <img src="img/tropy.png" alt="tropy" class="endtropy">
@@ -50,11 +50,11 @@ function endScreenTemplate() {
                         <p class="score">Your Score
                         </p>
                         <div class="fw-bold">
-                            variable/10
+                            ${endScore}/10
                         </div>
                     </figure>
-                    <button class="endscreenbutton btn">SHARE</button>
-                    <button class="endscreenbutton btn">REPLAY</button>
+                    <button  class="endscreenbutton btn">SHARE</button>
+                    <button onclick="startQuiz()" class="endscreenbutton btn">REPLAY</button>
                 </section>
     `
 }

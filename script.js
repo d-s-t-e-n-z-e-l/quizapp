@@ -103,6 +103,7 @@ function renderStartScreen() {
 
 function startQuiz() {
     localStorage.clear();//alle Werte aus dem LocStor werden gelöscht
+    setVariable("collectedPoints", 0)// setzt in den loc stor als bisher richtige antworten den wert 0, der später bei jedem "richtig" um 1 erhöht wird
     runQuiz(1);
     console.log("start")
 }
@@ -113,7 +114,9 @@ function runQuiz(questionNumber) {
 }
 
 function renderQuestion(questionNumber) {
+    // setBackgroundWhite();
     let innerCard = document.getElementById("innerCard")
+
 
     for (let i = 0; i < questions.length; i++) {
         if (questionNumber === questions[i]["number_of_question"]) {
@@ -124,6 +127,9 @@ function renderQuestion(questionNumber) {
     console.log("render questions")
 }
 
+// function setBackgroundWhite(){
+//     document.getElementById("innerCard").classList.add('backgroundWhite');
+// }
 
 function nextQuestion() {
     currentNumber = getVariable("numberKey")//aktuelle Fragenummer holen
@@ -133,7 +139,6 @@ function nextQuestion() {
     } else {
         runQuiz(nextNumber)//runquiz mit der neuen Zahl ablaufen lassen
     }
-
 }
 
 function exitGame() {
@@ -147,7 +152,8 @@ function endGame() {
 
 function renderEndscreen() {
     let innerCard = document.getElementById("innerCard");
-    innerCard.innerHTML = endScreenTemplate();
+    endScore = getVariable("collectedPoints")//holt sich die gezählöten punkte aus dem locstor
+    innerCard.innerHTML = endScreenTemplate(endScore); // holt sich die
 }
 
 function checkSelection(N) {
@@ -160,6 +166,7 @@ function checkSelection(N) {
 
     if (questions[currentQuestion - 1][answerNumber] === questions[currentQuestion - 1]["right_answer"]) {
         selcetionRight(answerBlockID);
+        raisePoints();
     } else {
         selectionWrong(answerBlockID);
         showRightAnswer(currentQuestion);
@@ -170,6 +177,13 @@ function selcetionRight(answerBlockID) {
     console.log("selection right")
     rightAnswer = document.getElementById(answerBlockID);
     rightAnswer.classList.add('answerblockGreen');//ändere hintergrund zu grün
+}
+
+function raisePoints(){// der puntk muss der erst mal wahrshcienlich erst in den locstor, da aktuell noch conoslen fehler
+    currentPoints = getVariable("collectedPoints");//packt die aktuelle Zahl anrichtigen antorten aus dem locstor in die var curretpoints, beginnt mit 0
+    newPoints = currentPoints +1;
+    setVariable("collectedPoints",newPoints )// loc stor wird mit um 1 erhöhten wert aktualisiert
+    //zahl im loc stor speichern und dann auf endscreen zeigen
 }
 
 
