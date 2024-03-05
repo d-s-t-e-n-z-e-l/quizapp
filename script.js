@@ -1,5 +1,3 @@
-
-
 let questions = [
     {
         "question": "Wie heißt das berühmte Tyrannosaurus Rex - Skelett aus dem Naturkundemuseum in Berlin?",
@@ -105,26 +103,32 @@ function startQuiz() {
     localStorage.clear();//alle Werte aus dem LocStor werden gelöscht
     setVariable("collectedPoints", 0)// setzt in den loc stor als bisher richtige antworten den wert 0, der später bei jedem "richtig" um 1 erhöht wird
     runQuiz(1);
-    console.log("start")
 }
 
 function runQuiz(questionNumber) {
     renderQuestion(questionNumber);
-    console.log("runquiz")
 }
 
 function renderQuestion(questionNumber) {
     // setBackgroundWhite();
     let innerCard = document.getElementById("innerCard")
 
-
     for (let i = 0; i < questions.length; i++) {
         if (questionNumber === questions[i]["number_of_question"]) {
             innerCard.innerHTML = questionTemplate(i,questionNumber);
+            setProgress(questionNumber);//aktualisiert den Forschrittsbutton
             setVariable("numberKey", questionNumber);// speichert den Wert von questionNumber im localStorag
+            
         }
     }
-    console.log("render questions")
+    
+}
+
+function setProgress(questionNumber){
+    let quotient =  questionNumber / questions.length;
+    percent = quotient*100;  //Prozent ausrechnen
+    document.getElementById("progressStep").innerHTML = /*html*/`${percent}%` ; // füt die sichtbare prozentzahl in den balken ein
+    document.getElementById("progressStep").style.width = /*html*/`${percent}%`; // ändert je anch fortschritt die breite des balkens
 }
 
 // function setBackgroundWhite(){
@@ -179,7 +183,7 @@ function selcetionRight(answerBlockID) {
     rightAnswer.classList.add('answerblockGreen');//ändere hintergrund zu grün
 }
 
-function raisePoints(){// der puntk muss der erst mal wahrshcienlich erst in den locstor, da aktuell noch conoslen fehler
+function raisePoints(){
     currentPoints = getVariable("collectedPoints");//packt die aktuelle Zahl anrichtigen antorten aus dem locstor in die var curretpoints, beginnt mit 0
     newPoints = currentPoints +1;
     setVariable("collectedPoints",newPoints )// loc stor wird mit um 1 erhöhten wert aktualisiert

@@ -1,4 +1,4 @@
-function startScreenTemplate(){
+function startScreenTemplate() {
     return /*html*/`
         <h5 class="card-title fw-bold text-center">Welcome to <br>The Awesome Dinosaur Quiz.</h5>
                     <p class="card-text text-center">Ready for the Challenge?</p>
@@ -9,7 +9,7 @@ function startScreenTemplate(){
     `
 }
 
-function questionTemplate(i,questionNumber) {
+function questionTemplate(i, questionNumber) {
     return /*html*/`
        <div> 
             <section class="question-card">
@@ -36,6 +36,10 @@ function questionTemplate(i,questionNumber) {
                 <span>${questionNumber}/10</span>
                 <button onclick="nextQuestion()" class="playButtons btn">Next</button>
             </figure>
+            <figure class="progress" role="progressbar">
+                <div id="progressStep" class="progress-bar" style="width: 0%"></div>
+            </figure
+>
          </div>
     `
 }

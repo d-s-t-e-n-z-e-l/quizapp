@@ -167,6 +167,9 @@ body {
     justify-content: center;
 }
 
+.progress{
+    margin-top:16px;
+}
 
 .playButtons{
     background-color: #d9dff2 !important;
