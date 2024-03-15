@@ -1,6 +1,6 @@
-* {
+/* * {
     outline: 1px solid red;
-}
+} */
 
 html,
 body {
@@ -28,12 +28,12 @@ body {
     flex-direction: column;
     position: relative;
     justify-content: center;
-    background-image: url(/img/brainbg.jpg);
     background-position: center;
+    background-color: #FFFFFF;
 }
 
-.backgroundWhite{
-    background-color: rgb(247,247,247) !important;
+.background{
+    background-image: url(/img/brainbg.jpg);
 }
 
 .card-title {
@@ -130,7 +130,6 @@ body {
     background-color: #ffffff;
     display: flex;
     justify-content: flex-start;
-    gap: 50px;
     font-family: 'Rubik';
     font-weight: 500;
     width: 75%;
@@ -357,5 +356,25 @@ body {
         height: 10%;
         top: 200px;
     }
+}
 
+@media(max-width: 340px) {
+        .answerblock{
+            flex-direction: column
+        }
+        .bodydiv{
+            height: unset;
+            padding: 16px;
+        }
+}
+
+@media(max-width: 400px) {
+    .startbuttondiv {
+        position: unset;
+        
+    }
+
+    .startbutton{
+        display: block;
+    }
 }

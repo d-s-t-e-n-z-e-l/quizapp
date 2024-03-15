@@ -5,7 +5,7 @@ let questions = [
         "answer_2": "Tristan",
         "answer_3": "Horatio",
         "answer_4": "Jaden",
-        "right_answer": "Rexi",
+        "right_answer": "Tristan",
         "number_of_question": 1,
 
     },
@@ -92,6 +92,9 @@ let questions = [
     },
 ]
 
+let audioSuccess = new Audio ('sounds/success.mp3');
+let audioFail = new Audio('sounds/fail.mp3');
+
 
 function renderStartScreen() {
     let innerCard = document.getElementById("innerCard");
@@ -110,7 +113,7 @@ function runQuiz(questionNumber) {
 }
 
 function renderQuestion(questionNumber) {
-    // setBackgroundWhite();
+    setBackgroundWhite();
     let innerCard = document.getElementById("innerCard")
 
     for (let i = 0; i < questions.length; i++) {
@@ -131,9 +134,9 @@ function setProgress(questionNumber){
     document.getElementById("progressStep").style.width = /*html*/`${percent}%`; // ändert je anch fortschritt die breite des balkens
 }
 
-// function setBackgroundWhite(){
-//     document.getElementById("innerCard").classList.add('backgroundWhite');
-// }
+function setBackgroundWhite(){
+    document.getElementById("innerCard").classList.remove('background');
+}
 
 function nextQuestion() {
     currentNumber = getVariable("numberKey")//aktuelle Fragenummer holen
@@ -161,7 +164,6 @@ function renderEndscreen() {
 }
 
 function checkSelection(N) {
-    console.log("checkSelection")
     let currentQuestion = getVariable("numberKey") // der aktuelle locstor Wert zeigt in welcher Frage wir sind, reduzieren wir ihn unten um 1 erhlaten wie die x-te stelle des arrays quest.
 
     answerBlockID = N;
@@ -171,14 +173,21 @@ function checkSelection(N) {
     if (questions[currentQuestion - 1][answerNumber] === questions[currentQuestion - 1]["right_answer"]) {
         selcetionRight(answerBlockID);
         raisePoints();
+        audioSuccess.play();
+
     } else {
         selectionWrong(answerBlockID);
         showRightAnswer(currentQuestion);
+        audioFail.play();
     }
+    setNextButtonEnabled();
+}
+
+function setNextButtonEnabled(){
+    document.getElementById("next").disabled = false;
 }
 
 function selcetionRight(answerBlockID) {
-    console.log("selection right")
     rightAnswer = document.getElementById(answerBlockID);
     rightAnswer.classList.add('answerblockGreen');//ändere hintergrund zu grün
 }
@@ -192,14 +201,12 @@ function raisePoints(){
 
 
 function selectionWrong(answerBlockID) {
-    console.log("selection wrong")
     selectedQuestion = document.getElementById(answerBlockID)
     selectedQuestion.classList.add('answerblockRed')//ändere hintergrund zu rot
 
 }
 
 function showRightAnswer(currentQuestion) {
-    console.log("showrightanswer")
     for (let i = 1; i < 5; i++) {
         answerKey = "answer_";
         checkedAnswer = answerKey + i //answer_1 , answer_2,  answer_3 und answer_4
