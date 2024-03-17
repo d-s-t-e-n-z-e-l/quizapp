@@ -92,8 +92,9 @@ let questions = [
     },
 ]
 
-let audioSuccess = new Audio ('sounds/success.mp3');
+let audioSuccess = new Audio('sounds/success.mp3');
 let audioFail = new Audio('sounds/fail.mp3');
+
 
 
 function renderStartScreen() {
@@ -109,7 +110,20 @@ function startQuiz() {
 }
 
 function runQuiz(questionNumber) {
+    setDisableCheck()//setze variablenwert in locstor auf initial true für anklickbare divs bei antwortoptionen
     renderQuestion(questionNumber);
+
+}
+
+function setDisableCheck() {
+    let disableCheck = true;
+    setVariable("disablekey", disableCheck);// speichert true in loc stor
+}
+
+
+function resetDisableCheck() {
+    let disableCheck = false;
+    setVariable("disablekey", disableCheck);// speichert false in loc stor und verhindetr anklickbare antworten nach 1. auswahl
 }
 
 function renderQuestion(questionNumber) {
@@ -118,23 +132,22 @@ function renderQuestion(questionNumber) {
 
     for (let i = 0; i < questions.length; i++) {
         if (questionNumber === questions[i]["number_of_question"]) {
-            innerCard.innerHTML = questionTemplate(i,questionNumber);
+            innerCard.innerHTML = questionTemplate(i, questionNumber);
             setProgress(questionNumber);//aktualisiert den Forschrittsbutton
             setVariable("numberKey", questionNumber);// speichert den Wert von questionNumber im localStorag
-            
+
         }
     }
-    
 }
 
-function setProgress(questionNumber){
-    let quotient =  questionNumber / questions.length;
-    percent = quotient*100;  //Prozent ausrechnen
-    document.getElementById("progressStep").innerHTML = /*html*/`${percent}%` ; // füt die sichtbare prozentzahl in den balken ein
+function setProgress(questionNumber) {
+    let quotient = questionNumber / questions.length;
+    percent = quotient * 100 - 10;  //Prozent ausrechnen
+    document.getElementById("progressStep").innerHTML = /*html*/`${percent}%`; // fügt die sichtbare prozentzahl in den balken ein
     document.getElementById("progressStep").style.width = /*html*/`${percent}%`; // ändert je anch fortschritt die breite des balkens
 }
 
-function setBackgroundWhite(){
+function setBackgroundWhite() {
     document.getElementById("innerCard").classList.remove('background');
 }
 
@@ -164,45 +177,50 @@ function renderEndscreen() {
 }
 
 function checkSelection(N) {
-    let currentQuestion = getVariable("numberKey") // der aktuelle locstor Wert zeigt in welcher Frage wir sind, reduzieren wir ihn unten um 1 erhlaten wie die x-te stelle des arrays quest.
+    let disableCheck = getVariable("disablekey")// holt sich den True aus dem lc stor
 
-    answerBlockID = N;
-    answer = "answer_";
-    answerNumber = answer + N; // nimmt in zeile 161 die Werte answer_1 , answer_2,  answer_3 und answer_4 an, ne nachdem was N durch den buttonclick gerade hat
+    if (disableCheck === true) {
+        let currentQuestion = getVariable("numberKey") // der aktuelle locstor Wert zeigt in welcher Frage wir sind, reduzieren wir ihn unten um 1 erhlaten wie die x-te stelle des arrays quest.
 
-    if (questions[currentQuestion - 1][answerNumber] === questions[currentQuestion - 1]["right_answer"]) {
-        selcetionRight(answerBlockID);
-        raisePoints();
-        audioSuccess.play();
+        answerBlockID = N;
+        answer = "answer_";
+        answerNumber = answer + N; // nimmt in zeile 161 die Werte answer_1 , answer_2,  answer_3 und answer_4 an, ne nachdem was N durch den buttonclick gerade hat
 
-    } else {
-        selectionWrong(answerBlockID);
-        showRightAnswer(currentQuestion);
-        audioFail.play();
+        if (questions[currentQuestion - 1][answerNumber] === questions[currentQuestion - 1]["right_answer"]) {
+            selcetionRight(answerBlockID);
+            raisePoints();
+            audioSuccess.play();
+        } else {
+            selectionWrong(answerBlockID);
+            showRightAnswer(currentQuestion);
+            audioFail.play();
+        }
+        setNextButtonEnabled();
+        resetDisableCheck();
     }
-    setNextButtonEnabled();
 }
 
-function setNextButtonEnabled(){
+function setNextButtonEnabled() {
     document.getElementById("next").disabled = false;
 }
+
 
 function selcetionRight(answerBlockID) {
     rightAnswer = document.getElementById(answerBlockID);
     rightAnswer.classList.add('answerblockGreen');//ändere hintergrund zu grün
 }
 
-function raisePoints(){
+function raisePoints() {
     currentPoints = getVariable("collectedPoints");//packt die aktuelle Zahl anrichtigen antorten aus dem locstor in die var curretpoints, beginnt mit 0
-    newPoints = currentPoints +1;
-    setVariable("collectedPoints",newPoints )// loc stor wird mit um 1 erhöhten wert aktualisiert
+    newPoints = currentPoints + 1;
+    setVariable("collectedPoints", newPoints)// loc stor wird mit um 1 erhöhten wert aktualisiert
     //zahl im loc stor speichern und dann auf endscreen zeigen
 }
 
 
 function selectionWrong(answerBlockID) {
-    selectedQuestion = document.getElementById(answerBlockID)
-    selectedQuestion.classList.add('answerblockRed')//ändere hintergrund zu rot
+    selectedQuestion = document.getElementById(answerBlockID);
+    selectedQuestion.classList.add('answerblockRed');//ändere hintergrund zu rot
 
 }
 
