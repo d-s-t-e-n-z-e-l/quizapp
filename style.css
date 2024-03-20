@@ -33,7 +33,7 @@ body {
 }
 
 .background {
-    background-image: url(/img/brainbg.jpg);
+    background-image: url("img/brainbg.jpg");
 }
 
 .card-title {

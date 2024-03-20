@@ -10,7 +10,7 @@ let questions = [
 
     },
     {
-        "question": "Welcher Dinosaurier war der schnellste?",
+        "question": "Welcher Dinosaurier war der Schnellste?",
         "answer_1": "Velociraptor",
         "answer_2": "Tyrannosaurus Rex",
         "answer_3": "Gallimimus",
@@ -37,7 +37,7 @@ let questions = [
         "number_of_question": 4,
     },
     {
-        "question": "Wie lang kein aus ausgewachsender Baryonyx sein?",
+        "question": "Wie lang kann aus ausgewachsener Baryonyx sein?",
         "answer_1": "4m",
         "answer_2": "20m",
         "answer_3": "11m",
@@ -100,7 +100,6 @@ let audioFail = new Audio('sounds/fail.mp3');
 function renderStartScreen() {
     let innerCard = document.getElementById("innerCard");
     innerCard.innerHTML = startScreenTemplate();
-    console.log("renderstartscreen")
 }
 
 function startQuiz() {
